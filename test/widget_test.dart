@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:jeeveeapp/Screens/SliderBarScreen.dart';
+import 'package:jeeveeapp/Authentication/signup.dart';
 
 // Define MyApp widget
 class MyApp extends StatelessWidget {
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SliderBarScreen(), // Your main screen widget
+      home: SignUpPage(), // Your main screen widget
     );
   }
 }
