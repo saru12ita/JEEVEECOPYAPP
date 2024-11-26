@@ -43,8 +43,8 @@
                           child: ListTile(
                             leading: Image.asset(
                                   'assets/icons/login.png', // Replace with your actual app icon path
-                                  width: 24,
-                                  height: 24,
+                                  width: 28,
+                                  height: 28,
                                 ),
                             title: Text("Login",
                             style: TextStyle(
@@ -79,8 +79,8 @@
                           child: ListTile(
                             leading: Image.asset(
                                   'assets/icons/Person.png', // Replace with your actual app icon path
-                                  width: 24,
-                                  height: 24,
+                                  width: 28,
+                                  height: 28,
                                 ),
                             title: Text("Join Jeevee",
                             style: TextStyle(
@@ -181,8 +181,8 @@
                               ListTile(
                                 leading: Image.asset(
                                   'assets/icons/contact.png', // Replace with your actual app icon path
-                                  width: 24,
-                                  height: 24,
+                                  width: 28,
+                                  height: 28,
                                 ),
                                 title: Text("Contact Us",
                                 style: TextStyle(
@@ -217,7 +217,11 @@
                             ],
                           ),
                           child: ListTile(
-                            leading: Icon(Icons.feedback),
+                             leading: Image.asset(
+                                  'assets/icons/feedback.png', // Replace with your actual app icon path
+                                  width: 28,
+                                  height: 28,
+                                ),
                             title: Text("Feedback",
                             style: TextStyle(
                               fontFamily: 'Roboto', // Default Flutter font
@@ -264,7 +268,11 @@
                                 ),
                               ),
                               ListTile(
-                                leading: Icon(Icons.policy),
+                                leading: Image.asset(
+                                  'assets/icons/Policies.png', // Replace with your actual app icon path
+                                  width: 28,
+                                  height: 28,
+                                ),
                                 title: Text("Policies",
                                 style: TextStyle(
                                 fontFamily: 'Roboto', // Default Flutter font
@@ -281,7 +289,11 @@
                               ),
                               Divider(),
                               ListTile(
-                                leading: Icon(Icons.description),
+                                leading: Image.asset(
+                                  'assets/icons/terms.png', // Replace with your actual app icon path
+                                  width: 28,
+                                  height: 28,
+                                ),
                                 title: Text("Terms and Conditions",
                                 style: TextStyle(
                                 fontFamily: 'Roboto', // Default Flutter font
@@ -298,7 +310,11 @@
                               ),
                               Divider(),
                               ListTile(
-                                leading: Icon(Icons.info_outline),
+                                leading: Image.asset(
+                                  'assets/icons/about.png', // Replace with your actual app icon path
+                                  width: 28,
+                                  height: 28,
+                                ),
                                 title: Text("About Jeevee",
                                 style: TextStyle(
                                 fontFamily: 'Roboto', // Default Flutter font
@@ -317,8 +333,8 @@
                               ListTile(
                                 leading: Image.asset(
                                   'assets/images/jvimg.png', // Replace with your actual app icon path
-                                  width: 24,
-                                  height: 24,
+                                  width: 28,
+                                  height: 28,
                                 ),
                                 title: Text("About App",
                                 style: TextStyle(
