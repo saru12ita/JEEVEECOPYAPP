@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DrawerScreen extends StatelessWidget {
+  const DrawerScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +90,7 @@ class DrawerScreen extends StatelessWidget {
 class StatefulCategoryItem extends StatefulWidget {
   final String title;
 
-  StatefulCategoryItem({required this.title});
+  const StatefulCategoryItem({super.key, required this.title});
 
   @override
   _StatefulCategoryItemState createState() => _StatefulCategoryItemState();
@@ -157,7 +159,7 @@ class _StatefulCategoryItemState extends State<StatefulCategoryItem> {
 class ProductPage extends StatelessWidget {
   final String title;
 
-  ProductPage({required this.title});
+  const ProductPage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

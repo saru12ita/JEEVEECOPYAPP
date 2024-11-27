@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
+
   @override
   _SignUpPageState createState() => _SignUpPageState();
 }
@@ -59,7 +61,7 @@ class _SignUpPageState extends State<SignUpPage> {
       context: context,
       builder: (BuildContext context) {
         DateTime selectedDate = DateTime.now();
-        return Container(
+        return SizedBox(
           height: 300,
           child: Column(
             children: [
@@ -98,8 +100,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void _navigateToLogin() {
-    Navigator.pushNamed(
-        context, '/login'); // Assumes login screen is registered in routes
+    Navigator.pushNamed(context, '/login');
   }
 
   @override
@@ -110,7 +111,6 @@ class _SignUpPageState extends State<SignUpPage> {
           icon: Icon(Icons.arrow_back),
           onPressed: _navigateToLogin,
         ),
-        // title: Text('Sign Up'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -119,12 +119,12 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               SizedBox(height: 40),
               Image.asset(
-                'assets/images/OIP.jpg', // Replace with your app logo
+                'assets/images/OIP.jpg',
                 height: 90,
               ),
               SizedBox(height: 16),
               Image.asset(
-                'assets/images/signup.jpg', // Replace with illustration
+                'assets/images/signup.jpg',
                 height: 210,
               ),
               SizedBox(height: 24),
@@ -222,7 +222,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     fontSize: 16,
                     color: Colors.black54,
                     fontWeight: FontWeight.bold,
-                    // No underline decoration here
                   ),
                 ),
               ),
@@ -250,16 +249,14 @@ class _SignUpPageState extends State<SignUpPage> {
         labelText: label,
         suffixIcon: isDate
             ? Icon(icon)
-            : obscureText
-                ? IconButton(
-                    icon: Icon(
-                      toggleVisibility != null && obscureText
-                          ? Icons.visibility
-                          : Icons.visibility_off,
-                    ),
-                    onPressed: toggleVisibility,
-                  )
-                : Icon(icon),
+            : IconButton(
+                icon: Icon(
+                  obscureText
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                ),
+                onPressed: toggleVisibility,
+              ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(35),
         ),

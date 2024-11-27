@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jeeveeapp/components/my_account_tile.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -67,41 +70,54 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 170, // Adjust size of the image as needed
               height: 90, // Adjust the height accordingly
             ),
-            const SizedBox(height: 20), // Space between image and search bar
-            // Row for Search Bar and Barcode Icon
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    height: 40,
-                    margin: const EdgeInsets.symmetric(horizontal: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search, color: Colors.black),
-                        hintText: 'Search...',
-                        border: InputBorder.none,
-                      ),
+            const SizedBox(height: 10),
+             // Space between image and search bar
+             // Replace the existing search bar Row code with this updated version
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8), // Padding around the row
+          child: Row(
+            children: [
+              // Expanded search bar to take more width
+              Expanded(
+                flex: 9, // Increase the flex value for the search bar
+                child: Container(
+                  width: 10,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search, color: Colors.black),
+                      hintText: 'Search for Products, Medicines...',
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(vertical: 10), // Adjust for alignment
                     ),
                   ),
                 ),
-                IconButton(
+              ),
+              const SizedBox(width: 8), // Spacing between the search bar and the barcode icon
+              // Barcode icon with a fixed width to allow more space for the search bar
+              SizedBox(
+                width: 40, // Fixed width for the barcode icon
+                child: IconButton(
                   icon: Image.asset(
                     'assets/icons/barcode.png', // Replace with your barcode icon path
-                    width: 30,
-                    height: 30,
-                    color: Color.lerp(
-                        Colors.purple, Colors.cyan, 0.5), // Apply color blend
+                    width: 24,
+                    height: 24,
+                    color: Colors.black87, // Set color for the icon
                   ),
                   onPressed: () {
-                    // Implement barcode scanning functionality here
+                    // Barcode scanning functionality
                   },
                 ),
-              ],
-            ),
+              ),
+            ],
+          ),
+        ),
+
+
           ],
         ),
         centerTitle: true, // Center the content of the AppBar
@@ -164,6 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+      
       body: _pages[_selectedIndex],
       bottomNavigationBar: Stack(
         clipBehavior: Clip.none,
@@ -192,7 +209,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   iconPath: 'assets/icons/account.png',
                   label: 'Account',
                   isSelected: _selectedIndex == 3,
-                  onTap: () => _onItemTapped(3),
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context)=>MyAccountTile()),
+                    );
+                  },
                 ),
               ],
             ),
@@ -269,7 +291,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class StatefulCategoryItem extends StatefulWidget {
   final String title;
 
-  StatefulCategoryItem({required this.title});
+  const StatefulCategoryItem({super.key, required this.title});
 
   @override
   _StatefulCategoryItemState createState() => _StatefulCategoryItemState();
@@ -336,7 +358,7 @@ class _StatefulCategoryItemState extends State<StatefulCategoryItem> {
 class ProductPage extends StatelessWidget {
   final String title;
 
-  ProductPage({required this.title});
+  const ProductPage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -362,7 +384,7 @@ class CustomCircleButton extends StatelessWidget {
   final bool showArrow; // Flag to determine if the arrow should be shown
   final bool showThan; // Flag to show than.png only on Men/Women screen
 
-  const CustomCircleButton({
+  const CustomCircleButton({super.key, 
     required this.isSelected,
     required this.label,
     required this.iconColor,
