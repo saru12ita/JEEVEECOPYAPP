@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jeeveeapp/components/my_account_tile.dart';
+import 'package:jeeveeapp/containers/CategoryMain/CategoryHome.dart';
+import 'package:jeeveeapp/homepage/homepage.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,11 +12,22 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   bool isMenSelected = true; // Flag to toggle between Men and Women
 
+/*
   final List<Widget> _pages = [
     Center(child: Text("Men/Women Screen")),
     Center(child: Text("Categories Screen")),
     Center(child: Text("Offers Screen")),
     Center(child: Text("Account Screen")),
+  ];
+
+*/
+
+  final List<Widget> _pages = [
+    //Center(child: Text("Men/Women Screen")),
+    HomePage(),
+    CategoryMainPage(), // Added CategoryMainPage for Categories section
+    Center(child: Text("Offers Screen")),
+    MyAccountTile(),
   ];
 
   void _onItemTapped(int index) {
