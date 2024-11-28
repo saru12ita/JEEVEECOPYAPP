@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jeeveeapp/productDetails/productDetails.dart';
 
-class CleansersMain extends StatefulWidget {
-  const CleansersMain({super.key});
+class Relatedcard extends StatefulWidget {
+  const Relatedcard({super.key});
 
   @override
-  State<CleansersMain> createState() => _CleansersMainState();
+  State<Relatedcard> createState() => _RelatedcardState();
 }
 
-class _CleansersMainState extends State<CleansersMain> {
+class _RelatedcardState extends State<Relatedcard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,32 +27,6 @@ class _CleansersMainState extends State<CleansersMain> {
                         padding: const EdgeInsets.all(8.0),
                         child: SizedBox(
                           height: 15,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey
-                                      .withOpacity(0.5), // Shadow color
-                                  spreadRadius: 2, // Spread radius
-                                  blurRadius: 5, // Blur radius
-                                  offset: Offset(
-                                      0, 3), // Offset in the X and Y direction
-                                ),
-                              ],
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 2, right: 5, left: 5),
-                              child: Text(
-                                "BESTSELLER",
-                                style: TextStyle(
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.purple),
-                              ),
-                            ),
-                          ),
                         ),
                       ),
                       Center(
@@ -61,7 +34,7 @@ class _CleansersMainState extends State<CleansersMain> {
                           decoration: BoxDecoration(border: Border.all()),
                           child: SizedBox(
                             height: 130,
-                            child: Image.asset('assets/images/diaper.png'),
+                            child: Image.asset('assets/images/sunscreen2.webp'),
                           ),
                         ),
                       ),
@@ -93,15 +66,13 @@ class _CleansersMainState extends State<CleansersMain> {
                                   "NPR. ",
                                   style: TextStyle(
                                       fontSize: 10,
-                                      color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                      color: Colors.pink,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   "1529.85",
                                   style: TextStyle(
-                                      color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                      color: Colors.pink,
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -110,8 +81,7 @@ class _CleansersMainState extends State<CleansersMain> {
                                   "7% Off",
                                   style: TextStyle(
                                       fontSize: 13,
-                                      color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                      color: Colors.pink,
                                       fontWeight: FontWeight.bold),
                                 )
                               ],
@@ -146,20 +116,12 @@ class _CleansersMainState extends State<CleansersMain> {
                                     height: 25,
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor:
-                                              Color.fromARGB(255, 235, 73, 192),
+                                          backgroundColor: Colors.pink,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                         ),
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    Productdetails()),
-                                          );
-                                        },
+                                        onPressed: () {},
                                         child: Text(
                                           "Add to cart",
                                           style: TextStyle(

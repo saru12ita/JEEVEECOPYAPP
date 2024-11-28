@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jeeveeapp/productDetails/productDetails.dart';
 
 class FeedingBottlebowlsMain extends StatefulWidget {
   const FeedingBottlebowlsMain({super.key});
@@ -151,7 +152,14 @@ class _FeedingBottlebowlsMainState extends State<FeedingBottlebowlsMain> {
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Productdetails()),
+                                          );
+                                        },
                                         child: Text(
                                           "Add to cart",
                                           style: TextStyle(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jeeveeapp/productDetails/productDetails.dart';
 
 class BabyFormulaMain extends StatefulWidget {
   const BabyFormulaMain({super.key});
@@ -151,7 +152,14 @@ class _BabyFormulaMainState extends State<BabyFormulaMain> {
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Productdetails()),
+                                          );
+                                        },
                                         child: Text(
                                           "Add to cart",
                                           style: TextStyle(

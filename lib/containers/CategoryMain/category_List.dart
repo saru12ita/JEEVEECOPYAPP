@@ -19,6 +19,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/skincare.jpg'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -50,6 +51,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/makeup.avif'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -86,6 +88,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/mom.jpg'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -117,6 +120,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/kids.jpg'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -153,6 +157,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/health.jpg'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -184,6 +189,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/care.jpg'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -220,6 +226,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/haircare.avif'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -251,6 +258,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/fragrance.webp'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -287,6 +295,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/Gadgets.avif'),
                           fit: BoxFit.cover, // Ensures the image covers the box
@@ -318,6 +327,7 @@ class MakeUpList extends StatelessWidget {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         border: Border.all(),
+                        borderRadius: BorderRadius.circular(4),
                         image: DecorationImage(
                           image: AssetImage('assets/images/access.webp'),
                           fit: BoxFit.cover, // Ensures the image covers the box

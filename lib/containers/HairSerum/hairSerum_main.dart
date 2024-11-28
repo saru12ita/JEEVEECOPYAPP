@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jeeveeapp/productDetails/productDetails.dart';
 
 class HairserumMain extends StatefulWidget {
   const HairserumMain({super.key});
@@ -151,7 +152,14 @@ class _HairserumMainState extends State<HairserumMain> {
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Productdetails()),
+                                          );
+                                        },
                                         child: Text(
                                           "Add to cart",
                                           style: TextStyle(

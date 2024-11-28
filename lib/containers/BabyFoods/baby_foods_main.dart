@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jeeveeapp/productDetails/productDetails.dart';
 
 class BabyFoodsMain extends StatefulWidget {
   const BabyFoodsMain({super.key});
@@ -30,6 +31,7 @@ class _BabyFoodsMainState extends State<BabyFoodsMain> {
                           child: DecoratedBox(
                             decoration: BoxDecoration(
                               border: Border.all(),
+                              borderRadius: BorderRadius.circular(4),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey
@@ -57,7 +59,10 @@ class _BabyFoodsMainState extends State<BabyFoodsMain> {
                       ),
                       Center(
                         child: DecoratedBox(
-                          decoration: BoxDecoration(border: Border.all()),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(),
+                          ),
                           child: SizedBox(
                             height: 130,
                             child: Image.asset('assets/images/baby3.webp'),
@@ -71,7 +76,10 @@ class _BabyFoodsMainState extends State<BabyFoodsMain> {
                         ),
                       ),
                       DecoratedBox(
-                        decoration: BoxDecoration(border: Border.all()),
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,7 +159,14 @@ class _BabyFoodsMainState extends State<BabyFoodsMain> {
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Productdetails()),
+                                          );
+                                        },
                                         child: Text(
                                           "Add to cart",
                                           style: TextStyle(

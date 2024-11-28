@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:jeeveeapp/Authentication/signup.dart';
 import 'package:jeeveeapp/Authentication/login.dart';
 import 'package:jeeveeapp/SplashScreen/Home.dart';
+import 'package:jeeveeapp/productDetails/productDetails.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,9 +20,8 @@ class MyApp extends StatelessWidget {
       title: 'JeeVee App',
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      // home: SignUpPage(),
       home: HomeScreen(),
-      //home: const CategoryMainPage(),
+      //home: Productdetails(),
       routes: {
         '/signup': (context) => SignUpPage(), // Route for the SignUpPage
         '/login': (context) => LoginPage(), // Route for the LoginPage

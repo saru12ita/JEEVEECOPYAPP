@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jeeveeapp/components/my_account_tile.dart';
-<<<<<<< HEAD
 import 'package:jeeveeapp/containers/CategoryMain/CategoryHome.dart';
 import 'package:jeeveeapp/homepage/homepage.dart';
-=======
->>>>>>> fe868aef36f391ab2706bd24096383dbf13fbe4c
 
+/*
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -17,20 +15,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   bool isMenSelected = true; // Flag to toggle between Men and Women
 
-/*
   final List<Widget> _pages = [
-    Center(child: Text("Men/Women Screen")),
-    Center(child: Text("Categories Screen")),
-    Center(child: Text("Offers Screen")),
-    Center(child: Text("Account Screen")),
-  ];
-
-*/
-
-  final List<Widget> _pages = [
-    //Center(child: Text("Men/Women Screen")),
     HomePage(),
-    CategoryMainPage(), // Added CategoryMainPage for Categories section
+    CategoryMainPage(),
     Center(child: Text("Offers Screen")),
     MyAccountTile(),
   ];
@@ -56,9 +43,146 @@ class _HomeScreenState extends State<HomeScreen> {
     return Colors.black; // Default color for unselected icons
   }
 
+*/
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+  bool isMenSelected = true; // Flag to toggle between Men and Women
+  String _selectedSection = "Home"; // Default section
+
+  final List<Widget> _pages = [
+    HomePage(),
+    CategoryMainPage(),
+    Center(child: Text("Offers Screen")),
+    MyAccountTile(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  void toggleGender() {
+    setState(() {
+      isMenSelected = !isMenSelected;
+    });
+  }
+
+  // Helper function to get icon color
+  Color getIconColor(int index) {
+    if (_selectedIndex == index) {
+      // Mixing cyan and purple when selected
+      return Color.lerp(Colors.cyan, Colors.purple, 0.5) ?? Colors.cyan;
+    }
+    return Colors.black; // Default color for unselected icons
+  }
+
+  // Method to update the selected section
+  void _selectSection(String section) {
+    setState(() {
+      _selectedSection = section;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 140, // Increased height to fit all elements
+        backgroundColor: Colors.white, // Customize background color if needed
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Transform.rotate(
+              angle: 3.1416, // 180 degrees in radians
+              child: Transform.scale(
+                scaleX: -1, // Flip horizontally
+                child: Image.asset(
+                  'assets/icons/hamburger.png', // Replace with the path of your image
+                  width: 30,
+                  height: 30,
+                ),
+              ),
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
+        title: _selectedSection == "Account"
+            ? Text(
+                "Account Settings",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Roboto',
+                  fontSize: 16.0,
+                ),
+              )
+            : Column(
+                children: [
+                  // Display Image when not in "Account" section
+                  Image.asset(
+                    'assets/images/OIP.jpg', // Your image path
+                    width: 170, // Adjust size of the image as needed
+                    height: 90, // Adjust the height accordingly
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 9,
+                          child: Container(
+                            width: 10,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                prefixIcon:
+                                    Icon(Icons.search, color: Colors.black),
+                                hintText: 'Search for Products, Medicines...',
+                                border: InputBorder.none,
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 10),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        SizedBox(
+                          width: 40,
+                          child: IconButton(
+                            icon: Image.asset(
+                              'assets/icons/barcode.png',
+                              width: 24,
+                              height: 24,
+                              color: Colors.black87,
+                            ),
+                            onPressed: () {
+                              // Barcode scanning functionality
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+        centerTitle: true,
+      ),
+
+      /*
+
+
       appBar: AppBar(
         toolbarHeight: 140, // Increased height to fit all elements
         backgroundColor: Colors.white, // Customize background color if needed
@@ -87,57 +211,62 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 90, // Adjust the height accordingly
             ),
             const SizedBox(height: 10),
-             // Space between image and search bar
-             // Replace the existing search bar Row code with this updated version
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8), // Padding around the row
-          child: Row(
-            children: [
-              // Expanded search bar to take more width
-              Expanded(
-                flex: 9, // Increase the flex value for the search bar
-                child: Container(
-                  width: 10,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search, color: Colors.black),
-                      hintText: 'Search for Products, Medicines...',
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.symmetric(vertical: 10), // Adjust for alignment
+            // Space between image and search bar
+            // Replace the existing search bar Row code with this updated version
+            Container(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 8), // Padding around the row
+              child: Row(
+                children: [
+                  // Expanded search bar to take more width
+                  Expanded(
+                    flex: 9, // Increase the flex value for the search bar
+                    child: Container(
+                      width: 10,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.search, color: Colors.black),
+                          hintText: 'Search for Products, Medicines...',
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 10), // Adjust for alignment
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(width: 8), // Spacing between the search bar and the barcode icon
-              // Barcode icon with a fixed width to allow more space for the search bar
-              SizedBox(
-                width: 40, // Fixed width for the barcode icon
-                child: IconButton(
-                  icon: Image.asset(
-                    'assets/icons/barcode.png', // Replace with your barcode icon path
-                    width: 24,
-                    height: 24,
-                    color: Colors.black87, // Set color for the icon
+                  const SizedBox(
+                      width:
+                          8), // Spacing between the search bar and the barcode icon
+                  // Barcode icon with a fixed width to allow more space for the search bar
+                  SizedBox(
+                    width: 40, // Fixed width for the barcode icon
+                    child: IconButton(
+                      icon: Image.asset(
+                        'assets/icons/barcode.png', // Replace with your barcode icon path
+                        width: 24,
+                        height: 24,
+                        color: Colors.black87, // Set color for the icon
+                      ),
+                      onPressed: () {
+                        // Barcode scanning functionality
+                      },
+                    ),
                   ),
-                  onPressed: () {
-                    // Barcode scanning functionality
-                  },
-                ),
+                ],
               ),
-            ],
-          ),
-        ),
-
-
+            ),
           ],
         ),
         centerTitle: true, // Center the content of the AppBar
       ),
+
+*/
+
       drawer: Drawer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -196,7 +325,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      
       body: _pages[_selectedIndex],
       bottomNavigationBar: Stack(
         clipBehavior: Clip.none,
@@ -225,12 +353,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   iconPath: 'assets/icons/account.png',
                   label: 'Account',
                   isSelected: _selectedIndex == 3,
-                  onTap: (){
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context)=>MyAccountTile()),
-                    );
-                  },
+                  onTap: () => _onItemTapped(3),
                 ),
               ],
             ),
@@ -400,7 +523,8 @@ class CustomCircleButton extends StatelessWidget {
   final bool showArrow; // Flag to determine if the arrow should be shown
   final bool showThan; // Flag to show than.png only on Men/Women screen
 
-  const CustomCircleButton({super.key, 
+  const CustomCircleButton({
+    super.key,
     required this.isSelected,
     required this.label,
     required this.iconColor,
