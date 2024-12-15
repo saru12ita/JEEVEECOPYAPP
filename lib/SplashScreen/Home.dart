@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:jeeveeapp/BrandPages/BrandFashion.dart';
+import 'package:jeeveeapp/Categorypages/skin.dart';
 import 'package:jeeveeapp/components/my_account_tile.dart';
 import 'package:jeeveeapp/containers/CategoryMain/CategoryHome.dart';
+import 'package:jeeveeapp/containers/offersmain/Offer_Page.dart';
 import 'package:jeeveeapp/homepage/homepage.dart';
 
-/*
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -11,14 +13,38 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
+final List<Map<String, String>> brandList = [
+  {"name": "Aadhya", "imageUrl": "assets/icons/Aadhya.png"},
+  {"name": "Abbott", "imageUrl": "assets/icons/Abbott.png"},
+  {"name": "Acnes", "imageUrl": "assets/icons/Acnes.png"},
+  {"name": "Acnestar", "imageUrl": "assets/icons/Aadhya.png"},
+  {"name": "Aiwibi", "imageUrl": "assets/icons/Apple.png"},
+  {"name": "AI Ziba", "imageUrl": "assets/icons/Abbott.png"},
+  {"name": "Aadhya", "imageUrl": "assets/icons/Aadhya.png"},
+  {"name": "Abbott", "imageUrl": "assets/icons/Abbott.png"},
+  {"name": "Acnes", "imageUrl": "assets/icons/Acnes.png"},
+  {"name": "Acnestar", "imageUrl": "assets/icons/Aadhya.png"},
+  {"name": "Aiwibi", "imageUrl": "assets/icons/Apple.png"},
+  {"name": "AI Ziba", "imageUrl": "assets/icons/Abbott.png"},
+  {"name": "Aadhya", "imageUrl": "assets/icons/Aadhya.png"},
+  {"name": "Abbott", "imageUrl": "assets/icons/Abbott.png"},
+  {"name": "Acnes", "imageUrl": "assets/icons/Acnes.png"},
+  {"name": "Acnestar", "imageUrl": "assets/icons/Aadhya.png"},
+  {"name": "Aiwibi", "imageUrl": "assets/icons/Apple.png"},
+  {"name": "AI Ziba", "imageUrl": "assets/icons/Abbott.png"},
+];
+
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  bool isMenSelected = true; // Flag to toggle between Men and Women
+  bool isMenSelected = true;
+  String _selectedSection = "Categories"; // Start with Categories selected
+  String _searchQuery = "";
+  String _selectedFilter = "ALL"; // Track the selected filter
 
   final List<Widget> _pages = [
     HomePage(),
     CategoryMainPage(),
-    Center(child: Text("Offers Screen")),
+    OfferPage(),
     MyAccountTile(),
   ];
 
@@ -34,76 +60,102 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  // Helper function to get icon color
   Color getIconColor(int index) {
     if (_selectedIndex == index) {
-      // Mixing cyan and purple when selected
-      return Color.lerp(Colors.cyan, Colors.purple, 0.5) ?? Colors.cyan;
+      return Color.lerp(
+              const Color.fromARGB(255, 63, 76, 218), Colors.purple, 0.5) ??
+          const Color.fromARGB(255, 63, 76, 218);
     }
-    return Colors.black; // Default color for unselected icons
+    return Colors.black;
   }
 
-*/
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-  bool isMenSelected = true; // Flag to toggle between Men and Women
-  String _selectedSection = "Home"; // Default section
-
-  final List<Widget> _pages = [
-    HomePage(),
-    CategoryMainPage(),
-    Center(child: Text("Offers Screen")),
-    MyAccountTile(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  void toggleGender() {
-    setState(() {
-      isMenSelected = !isMenSelected;
-    });
-  }
-
-  // Helper function to get icon color
-  Color getIconColor(int index) {
-    if (_selectedIndex == index) {
-      // Mixing cyan and purple when selected
-      return Color.lerp(Colors.cyan, Colors.purple, 0.5) ?? Colors.cyan;
-    }
-    return Colors.black; // Default color for unselected icons
-  }
-
-  // Method to update the selected section
   void _selectSection(String section) {
     setState(() {
       _selectedSection = section;
     });
   }
 
+  List<Map<String, String>> _filteredBrands() {
+    return brandList.where((brand) {
+      return brand["name"]!.toLowerCase().contains(_searchQuery.toLowerCase());
+    }).toList();
+  }
+
+  // Method to build the category filter buttons
+  Widget _buildCategoryFilterButton(String label) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedFilter = label;
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: Text(
+          label,
+          style: TextStyle(
+            color: _selectedFilter == label
+                ? const Color.fromARGB(255, 215, 41, 180) // Pink when selected
+                : Colors.black, // Black when unselected
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Method to build the selection container for "Categories" and "Brands"
+  Widget _buildSectionButton(String label, String section) {
+    bool isSelected = _selectedSection == section;
+    return GestureDetector(
+      onTap: () {
+        _selectSection(section);
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? const Color.fromARGB(255, 63, 76, 218)
+              : Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+              color: isSelected
+                  ? const Color.fromARGB(255, 63, 76, 218)
+                  : Colors.black),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              section == "Categories" ? Icons.grid_view : Icons.label,
+              color: isSelected ? Colors.white : Colors.black,
+            ),
+            const SizedBox(width: 8),
+            Text(
+              label,
+              style: TextStyle(
+                color: isSelected ? Colors.white : Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 140, // Increased height to fit all elements
-        backgroundColor: Colors.white, // Customize background color if needed
+        toolbarHeight: 140,
+        backgroundColor: Colors.white,
         leading: Builder(
           builder: (context) => IconButton(
             icon: Transform.rotate(
-              angle: 3.1416, // 180 degrees in radians
+              angle: 3.1416,
               child: Transform.scale(
-                scaleX: -1, // Flip horizontally
+                scaleX: -1,
                 child: Image.asset(
                   'assets/icons/hamburger.png', // Replace with the path of your image
                   width: 30,
@@ -128,8 +180,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Display Image when not in "Account" section
                   Image.asset(
                     'assets/images/OIP.jpg', // Your image path
-                    width: 170, // Adjust size of the image as needed
-                    height: 90, // Adjust the height accordingly
+                    width: 195, // Adjust size of the image as needed
+                    height: 100, // Adjust the height accordingly
                   ),
                   const SizedBox(height: 10),
                   Container(
@@ -179,149 +231,186 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
         centerTitle: true,
       ),
-
-      /*
-
-
-      appBar: AppBar(
-        toolbarHeight: 140, // Increased height to fit all elements
-        backgroundColor: Colors.white, // Customize background color if needed
-        leading: Builder(
-          builder: (context) => IconButton(
-            icon: Transform.rotate(
-              angle: 3.1416, // 180 degrees in radians
-              child: Transform.scale(
-                scaleX: -1, // Flip horizontally
-                child: Image.asset(
-                  'assets/icons/hamburger.png', // Replace with the path of your image
-                  width: 30,
-                  height: 30,
-                ),
-              ),
-            ),
-            onPressed: () => Scaffold.of(context).openDrawer(),
-          ),
-        ),
-        title: Column(
-          children: [
-            // Existing Image
-            Image.asset(
-              'assets/images/OIP.jpg', // Replace with your image path
-              width: 170, // Adjust size of the image as needed
-              height: 90, // Adjust the height accordingly
-            ),
-            const SizedBox(height: 10),
-            // Space between image and search bar
-            // Replace the existing search bar Row code with this updated version
-            Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 8), // Padding around the row
-              child: Row(
-                children: [
-                  // Expanded search bar to take more width
-                  Expanded(
-                    flex: 9, // Increase the flex value for the search bar
-                    child: Container(
-                      width: 10,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search, color: Colors.black),
-                          hintText: 'Search for Products, Medicines...',
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: 10), // Adjust for alignment
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                      width:
-                          8), // Spacing between the search bar and the barcode icon
-                  // Barcode icon with a fixed width to allow more space for the search bar
-                  SizedBox(
-                    width: 40, // Fixed width for the barcode icon
-                    child: IconButton(
-                      icon: Image.asset(
-                        'assets/icons/barcode.png', // Replace with your barcode icon path
-                        width: 24,
-                        height: 24,
-                        color: Colors.black87, // Set color for the icon
-                      ),
-                      onPressed: () {
-                        // Barcode scanning functionality
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-        centerTitle: true, // Center the content of the AppBar
-      ),
-
-*/
-
       drawer: Drawer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.cyan, Colors.purple],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildSectionButton("Categories", "Categories"),
+                    const SizedBox(width: 16),
+                    _buildSectionButton("Brands", "Brands"),
+                  ],
                 ),
               ),
-              child: Row(
-                children: [
-                  Icon(Icons.grid_view, color: Colors.white),
-                  SizedBox(width: 10),
-                  Text(
-                    "Categories",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            const Divider(),
+            // Show "All Categories" only when "Categories" is selected
+            if (_selectedSection == "Categories")
+              ListTile(
+                title: Text(
+                  'All Categories',
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 14, 48, 221),
+                    fontSize: 18,
                   ),
-                  Spacer(),
-                  Icon(Icons.label, color: Colors.white),
-                  SizedBox(width: 10),
-                  Text(
-                    "Brands",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                ],
+                ),
+                onTap: () {},
               ),
-            ),
-            ListTile(
-              title: Text(
-                'All Categories',
-                style: TextStyle(
-                    color: const Color.fromARGB(255, 142, 6, 239),
-                    fontSize: 18),
-              ),
-              onTap: () {},
-            ),
-            Expanded(
-              child: ListView(
-                children: [
-                  buildCategoryItem("Skin", context),
-                  buildCategoryItem("Hair", context),
-                  buildCategoryItem("Fragrances", context),
-                  buildCategoryItem("Makeup", context),
-                  buildCategoryItem("Kid's Fashion", context),
-                  buildCategoryItem("Gadgets & Accessories", context),
-                  buildCategoryItem("Home Appliances & Television", context),
-                  buildCategoryItem("Women Fashion", context),
-                  buildCategoryItem("Mom & Baby", context),
-                  buildCategoryItem("Personal Care", context),
-                ],
-              ),
-            ),
+            // Show the rest of the categories only when "Categories" is selected
+            _selectedSection == "Categories"
+                ? Expanded(
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      children: [
+                        buildCategoryItem("Skin", context),
+                        buildCategoryItem("Hair", context),
+                        buildCategoryItem("Fragrances", context),
+                        buildCategoryItem("Makeup", context),
+                        buildCategoryItem("Kid's Fashion", context),
+                        buildCategoryItem("Gadgets & Accessories", context),
+                        buildCategoryItem(
+                            "Home Appliances & Television", context),
+                        buildCategoryItem("Skin", context),
+                        buildCategoryItem("Hair", context),
+                        buildCategoryItem("Fragrances", context),
+                        buildCategoryItem("Makeup", context),
+                        buildCategoryItem("Kid's Fashion", context),
+                        buildCategoryItem("Gadgets & Accessories", context),
+                      ],
+                    ),
+                  )
+                : Container(),
+            // Show search bar and filter buttons only when "Brands" is selected
+            _selectedSection == "Brands"
+                ? Expanded(
+                    child: Column(
+                      children: [
+                        // Search bar above filter buttons
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 9,
+                                child: Container(
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade200,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      prefixIcon: Icon(Icons.search,
+                                          color: Colors.black),
+                                      hintText:
+                                          'Search for Products, Medicines...',
+                                      border: InputBorder.none,
+                                      contentPadding:
+                                          EdgeInsets.symmetric(vertical: 10),
+                                    ),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _searchQuery = value;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              SizedBox(
+                                width: 40,
+                                child: IconButton(
+                                  icon: Image.asset(
+                                    "assets/icons/filter.png",
+                                    width: 30,
+                                    height: 30,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Category filter buttons
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              _buildCategoryFilterButton("ALL"),
+                              SizedBox(width: 20),
+                              _buildCategoryFilterButton("#"),
+                              SizedBox(width: 20),
+                              _buildCategoryFilterButton("A"),
+                              SizedBox(width: 20),
+                              _buildCategoryFilterButton("B"),
+                              SizedBox(width: 20),
+                              _buildCategoryFilterButton("C"),
+                              SizedBox(width: 20),
+                              _buildCategoryFilterButton("D"),
+                            ],
+                          ),
+                        ),
+
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount:
+                                brandList.length, // Length of the brand list
+                            itemBuilder: (context, index) {
+                              final brand =
+                                  brandList[index]; // Get the brand data
+                              return ListTile(
+                                leading: Container(
+                                  width:
+                                      30, // Set a small width for the container
+                                  height:
+                                      30, // Set a small height for the container
+                                  padding: const EdgeInsets.all(
+                                      5), // Optional: Add padding inside the container
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape
+                                        .circle, // Optional: Make the container circular
+                                    color: Colors.grey[
+                                        200], // Optional: Background color for the container
+                                  ),
+                                  child: Image.asset(
+                                    brand[
+                                        "imageUrl"]!, // Load the image from assets
+                                    width:
+                                        20, // Image size inside the container
+                                    height:
+                                        20, // Image size inside the container
+                                    fit: BoxFit
+                                        .cover, // Optional: Fit the image to fill the container
+                                  ),
+                                ),
+                                title: Text(
+                                    brand["name"]!), // Display the brand name
+                                onTap: () {
+                                  // Navigate to Fashion Screen when a brand is tapped
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => FashionPage(),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(),
+
+            // Show nothing if Brands is not selected
           ],
         ),
       ),
@@ -358,6 +447,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+
           // Custom Circular Button for "V> (Men/Women)"
           Positioned(
             left: 10, // Adjust the horizontal position
@@ -404,9 +494,9 @@ class _HomeScreenState extends State<HomeScreen> {
             AssetImage(iconPath),
             size: 24,
             color: isSelected
-                ? Color.lerp(Colors.cyan, Colors.purple, 0.5) ?? Colors.cyan
-                : Colors
-                    .black, // Change to a mixture of cyan and purple when selected
+                ? Colors.blue // Blue when selected
+                : Colors.black, // Black when unselected
+            // Change to a mixture of cyan and purple when selected
           ),
           const SizedBox(height: 4),
           Text(
@@ -425,6 +515,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget buildCategoryItem(String title, BuildContext context) {
     return StatefulCategoryItem(title: title);
   }
+
+  //_buildCategoryFilterButton(String s) {}
 }
 
 class StatefulCategoryItem extends StatefulWidget {
@@ -447,7 +539,7 @@ class _StatefulCategoryItemState extends State<StatefulCategoryItem> {
         style: TextStyle(
           fontSize: 16,
           color: _isSelected
-              ? const Color.fromRGBO(235, 33, 148, 1)
+              ? const Color.fromARGB(255, 215, 41, 180)
               : Colors.black, // Change to pink if selected
         ),
       ),
@@ -464,6 +556,17 @@ class _StatefulCategoryItemState extends State<StatefulCategoryItem> {
         });
       },
       children: [
+        buildSubCategoryItem("Complete Collection", context),
+        buildSubCategoryItem("Cleansers", context),
+        buildSubCategoryItem("Body Care", context),
+        buildSubCategoryItem("Kits & Combos", context),
+        buildSubCategoryItem("Sun Care", context),
+        buildSubCategoryItem("Masks", context),
+        buildSubCategoryItem("Eye Care", context),
+        buildSubCategoryItem("Lip Care", context),
+        buildSubCategoryItem("Toners", context),
+        buildSubCategoryItem("Moisturizers", context),
+        buildSubCategoryItem("Hands & Feet", context),
         buildSubCategoryItem("Complete ${widget.title} Collection", context),
         buildSubCategoryItem("Cleansers", context),
         buildSubCategoryItem("Body Care", context),
@@ -486,7 +589,7 @@ class _StatefulCategoryItemState extends State<StatefulCategoryItem> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProductPage(title: title),
+            builder: (context) => SkinPage(),
           ),
         );
       },

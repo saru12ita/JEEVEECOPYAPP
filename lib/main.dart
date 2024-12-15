@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:jeeveeapp/Authentication/signup.dart';
 import 'package:jeeveeapp/Authentication/login.dart';
 import 'package:jeeveeapp/SplashScreen/Home.dart';
-import 'package:jeeveeapp/productDetails/productDetails.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
-      //home: Productdetails(),
+      // home: ItahariMedicalApp(),
       routes: {
         '/signup': (context) => SignUpPage(), // Route for the SignUpPage
         '/login': (context) => LoginPage(), // Route for the LoginPage

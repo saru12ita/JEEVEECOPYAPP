@@ -48,9 +48,10 @@ class _WomenfragrancesMainState extends State<WomenfragrancesMain> {
                               child: Text(
                                 "BESTSELLER",
                                 style: TextStyle(
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.purple),
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color.fromARGB(255, 22, 32, 234),
+                                ),
                               ),
                             ),
                           ),
@@ -94,14 +95,14 @@ class _WomenfragrancesMainState extends State<WomenfragrancesMain> {
                                   style: TextStyle(
                                       fontSize: 10,
                                       color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                          255, 22, 32, 234),
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   "1529.85",
                                   style: TextStyle(
                                       color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                          255, 22, 32, 234),
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -111,7 +112,7 @@ class _WomenfragrancesMainState extends State<WomenfragrancesMain> {
                                   style: TextStyle(
                                       fontSize: 13,
                                       color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                          255, 22, 32, 234),
                                       fontWeight: FontWeight.bold),
                                 )
                               ],
@@ -147,7 +148,7 @@ class _WomenfragrancesMainState extends State<WomenfragrancesMain> {
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: const Color.fromARGB(
-                                              255, 235, 73, 192),
+                                              255, 22, 32, 234),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(5)),

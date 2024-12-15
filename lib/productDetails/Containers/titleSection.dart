@@ -68,7 +68,9 @@ class _TitleSectionState extends State<TitleSection> {
                 children: [
                   Text(
                     "NPR. 844.80",
-                    style: TextStyle(color: Colors.pink, fontSize: 20),
+                    style: TextStyle(
+                        color: const Color.fromARGB(255, 22, 32, 234),
+                        fontSize: 20),
                   ),
                 ],
               ),

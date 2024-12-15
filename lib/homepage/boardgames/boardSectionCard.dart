@@ -68,14 +68,14 @@ class _BoardsectioncardState extends State<Boardsectioncard> {
                                   style: TextStyle(
                                       fontSize: 10,
                                       color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                          255, 22, 32, 234),
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   "1529.85",
                                   style: TextStyle(
                                       color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                          255, 22, 32, 234),
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -85,7 +85,7 @@ class _BoardsectioncardState extends State<Boardsectioncard> {
                                   style: TextStyle(
                                       fontSize: 13,
                                       color: const Color.fromARGB(
-                                          255, 235, 73, 192),
+                                          255, 22, 32, 234),
                                       fontWeight: FontWeight.bold),
                                 )
                               ],
@@ -121,7 +121,7 @@ class _BoardsectioncardState extends State<Boardsectioncard> {
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: const Color.fromARGB(
-                                              255, 235, 73, 192),
+                                              255, 22, 32, 234),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(5)),

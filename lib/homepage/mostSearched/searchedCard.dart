@@ -43,7 +43,7 @@ class SearchedCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 8,
                           fontWeight: FontWeight.bold,
-                          color: Colors.purple,
+                          color: const Color.fromARGB(255, 22, 32, 234),
                         ),
                       ),
                     ),
@@ -111,7 +111,7 @@ class SearchedCard extends StatelessWidget {
                             "NPR. ",
                             style: TextStyle(
                               fontSize: 10,
-                              color: const Color.fromARGB(255, 235, 73, 192),
+                              color: const Color.fromARGB(255, 22, 32, 234),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -119,7 +119,7 @@ class SearchedCard extends StatelessWidget {
                             "1529.85",
                             style: TextStyle(
                               fontSize: 10,
-                              color: const Color.fromARGB(255, 235, 73, 192),
+                              color: const Color.fromARGB(255, 22, 32, 234),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -128,7 +128,7 @@ class SearchedCard extends StatelessWidget {
                             "7% Off",
                             style: TextStyle(
                               fontSize: 13,
-                              color: const Color.fromARGB(255, 235, 73, 192),
+                              color: const Color.fromARGB(255, 22, 32, 234),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -170,7 +170,7 @@ class SearchedCard extends StatelessWidget {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor:
-                                    const Color.fromARGB(255, 235, 73, 192),
+                                    const Color.fromARGB(255, 22, 32, 234),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5),
                                 ),

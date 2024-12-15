@@ -66,13 +66,15 @@ class _RelatedcardState extends State<Relatedcard> {
                                   "NPR. ",
                                   style: TextStyle(
                                       fontSize: 10,
-                                      color: Colors.pink,
+                                      color: const Color.fromARGB(
+                                          255, 22, 32, 234),
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   "1529.85",
                                   style: TextStyle(
-                                      color: Colors.pink,
+                                      color: const Color.fromARGB(
+                                          255, 22, 32, 234),
                                       fontSize: 10,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -81,7 +83,8 @@ class _RelatedcardState extends State<Relatedcard> {
                                   "7% Off",
                                   style: TextStyle(
                                       fontSize: 13,
-                                      color: Colors.pink,
+                                      color: const Color.fromARGB(
+                                          255, 22, 32, 234),
                                       fontWeight: FontWeight.bold),
                                 )
                               ],
@@ -116,7 +119,8 @@ class _RelatedcardState extends State<Relatedcard> {
                                     height: 25,
                                     child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.pink,
+                                          backgroundColor: const Color.fromARGB(
+                                              255, 22, 32, 234),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(5)),

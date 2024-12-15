@@ -11,31 +11,133 @@ class Brandspicked extends StatefulWidget {
 class _BrandspickedState extends State<Brandspicked> {
   @override
   Widget build(BuildContext context) {
-    // Combine text1 and text2 into a list of maps
+    // Add image paths to the list of maps
     final List<Map<String, String>> brands = [
-      {"text1": "Upto 33% OFF", "text2": "Cerave"},
-      {"text1": "Flat 5% OFF", "text2": "Minimalist"},
-      {"text1": "Upto 50% OFF", "text2": "Mamaearth"},
-      {"text1": "Upto 17% OFF", "text2": "Fix Dearma"},
-      {"text1": "Flat 10% OFF", "text2": "Aqualogica"},
-      {"text1": "Upto 27% OFF", "text2": "The Ordinary"},
-      {"text1": "Flat 9% OFF", "text2": "The Derma Co"},
-      {"text1": "Upto 32% OFF", "text2": "Cosrx"},
+      {
+        "text1": "Upto 33% OFF",
+        "text2": "Cerave",
+        "image": "assets/images/sunscreen2.webp"
+      },
+      {
+        "text1": "Flat 5% OFF",
+        "text2": "Minimalist",
+        "image": "assets/images/sunscreen.webp"
+      },
+      {
+        "text1": "Upto 50% OFF",
+        "text2": "Mamaearth",
+        "image": "assets/images/serum.webp"
+      },
+      {
+        "text1": "Upto 17% OFF",
+        "text2": "Fix Dearma",
+        "image": "assets/images/serum.jpg"
+      },
+      {
+        "text1": "Flat 10% OFF",
+        "text2": "Aqualogica",
+        "image": "assets/images/prefume.png"
+      },
+      {
+        "text1": "Upto 27% OFF",
+        "text2": "The Ordinary",
+        "image": "assets/images/moistur1.webp"
+      },
+      {
+        "text1": "Flat 9% OFF",
+        "text2": "The Derma Co",
+        "image": "assets/images/moist.webp"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/foo.jpg"
+      },
+      {
+        "text1": "Upto 27% OFF",
+        "text2": "The Ordinary",
+        "image": "assets/images/feeding.png"
+      },
+      {
+        "text1": "Flat 9% OFF",
+        "text2": "The Derma Co",
+        "image": "assets/images/facewash3.webp"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/facewash2.webp"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/facewash.jpg"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/face2.jpeg"
+      },
+
+      {
+        "text1": "Upto 27% OFF",
+        "text2": "The Ordinary",
+        "image": "assets/images/baby3.webp"
+      },
+      {
+        "text1": "Flat 9% OFF",
+        "text2": "The Derma Co",
+        "image": "assets/images/babyfood.webp"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/babyfor.webp"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/cerum1.webp"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/cerum2.png"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/cerum3.jpg"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/cetaphil.jpg"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/diaper.png"
+      },
+      {
+        "text1": "Upto 32% OFF",
+        "text2": "Cosrx",
+        "image": "assets/images/diaper1.webp"
+      },
+      // Add more entries here for a total of 20 or more items
     ];
 
     return Container(
       child: Column(
         children: [
-          SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Text(
                 "Brands Picks",
                 style: TextStyle(
-                    color: const Color.fromARGB(255, 235, 73, 192),
+                    color: const Color.fromARGB(255, 22, 32, 234),
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
@@ -45,7 +147,7 @@ class _BrandspickedState extends State<Brandspicked> {
               ),
               Icon(
                 Icons.point_of_sale_outlined,
-                color: const Color.fromARGB(255, 235, 73, 192),
+                color: const Color.fromARGB(255, 22, 32, 234),
               ),
             ],
           ),
@@ -68,7 +170,7 @@ class _BrandspickedState extends State<Brandspicked> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            'assets/images/serum.jpg',
+                            brand['image']!, // Dynamically load the image path
                             height: 220,
                             width: 130,
                             fit: BoxFit.cover,
@@ -91,7 +193,7 @@ class _BrandspickedState extends State<Brandspicked> {
                                 brand['text1']!, // Display text1
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  color: Colors.purple,
+                                  color: const Color.fromARGB(255, 22, 32, 234),
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),
