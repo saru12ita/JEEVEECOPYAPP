@@ -100,7 +100,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void _navigateToLogin() {
-    Navigator.pushNamed(context, '/login');
+    Navigator.pushNamed(context, '/accountmain');
   }
 
   @override
@@ -109,8 +109,14 @@ class _SignUpPageState extends State<SignUpPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: _navigateToLogin,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -202,7 +208,8 @@ class _SignUpPageState extends State<SignUpPage> {
               ElevatedButton(
                 onPressed: _signUp,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(192, 136, 134, 134),
+                  backgroundColor: Colors.grey[300], // Disabled grey color
+                  foregroundColor: Colors.white,
                   padding: EdgeInsets.symmetric(horizontal: 48, vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
@@ -215,7 +222,9 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(height: 16),
               GestureDetector(
-                onTap: _navigateToLogin,
+                onTap: () {
+                  Navigator.pushNamed(context, '/login');
+                },
                 child: Text(
                   "Go to SignIn",
                   style: TextStyle(
@@ -239,7 +248,7 @@ class _SignUpPageState extends State<SignUpPage> {
     bool obscureText = false,
     bool isDate = false,
     VoidCallback? toggleVisibility,
-  }) {
+}) {
     return TextField(
       controller: controller,
       obscureText: obscureText,
@@ -247,20 +256,30 @@ class _SignUpPageState extends State<SignUpPage> {
       onTap: isDate ? _selectDateOfBirth : null,
       decoration: InputDecoration(
         labelText: label,
+        labelStyle: TextStyle(color: Colors.black54), // Always visible label style
+        // Remove hintText completely so that it doesn't appear
+        hintText: null, // Remove this line to ensure no hintText appears
         suffixIcon: isDate
-            ? Icon(icon)
+            ? Icon(icon, color: Colors.black38)
             : IconButton(
                 icon: Icon(
-                  obscureText
-                      ? Icons.visibility_off
-                      : Icons.visibility,
+                  obscureText ? Icons.visibility_off : Icons.visibility,
+                  color: Colors.black38,
                 ),
                 onPressed: toggleVisibility,
               ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black38),
+          borderRadius: BorderRadius.circular(35),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black54),
+          borderRadius: BorderRadius.circular(35),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(35),
         ),
       ),
     );
-  }
+}
 }

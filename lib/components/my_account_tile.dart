@@ -45,7 +45,8 @@ class MyAccountTile extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 onTap: () {
-                  // Login functionalities
+                   // Navigate to the Login page using named route
+                    Navigator.pushNamed(context, '/login');
                 },
               ),
             ),
@@ -83,7 +84,8 @@ class MyAccountTile extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 onTap: () {
-                  // Registration functionality goes here
+                  // Navigate to the Login page using named route
+                    Navigator.pushNamed(context, '/signup');
                 },
               ),
             ),
