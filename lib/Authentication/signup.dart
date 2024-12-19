@@ -184,13 +184,13 @@ class _SignUpPageState extends State<SignUpPage> {
                           TextSpan(
                             text: "Terms and Conditions",
                             style: TextStyle(
-                                color: const Color.fromARGB(255, 212, 52, 188)),
+                                color: const Color.fromARGB(255, 63, 76, 218)),
                           ),
                           TextSpan(text: " and "),
                           TextSpan(
                             text: "Privacy Policy.",
                             style: TextStyle(
-                                color: const Color.fromARGB(255, 212, 52, 188)),
+                                color: const Color.fromARGB(255, 63, 76, 218)),
                           ),
                         ],
                       ),
@@ -202,7 +202,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ElevatedButton(
                 onPressed: _signUp,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(192, 136, 134, 134),
+                  backgroundColor: const Color.fromARGB(255, 63, 76, 218),
                   padding: EdgeInsets.symmetric(horizontal: 48, vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
@@ -251,9 +251,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ? Icon(icon)
             : IconButton(
                 icon: Icon(
-                  obscureText
-                      ? Icons.visibility_off
-                      : Icons.visibility,
+                  obscureText ? Icons.visibility_off : Icons.visibility,
                 ),
                 onPressed: toggleVisibility,
               ),
