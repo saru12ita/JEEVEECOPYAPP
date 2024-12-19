@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jeeveeapp/containers/FaceMoisturizer/face_moisturizers_main.dart';
 

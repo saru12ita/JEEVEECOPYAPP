@@ -112,8 +112,9 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: _login,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(192, 136, 134, 134),
-                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 14),
+                  backgroundColor: Colors.grey[300], // Disabled grey color
+                  foregroundColor: Colors.white, // Text color
+                  padding: EdgeInsets.symmetric(horizontal: 75, vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
                   ),
@@ -165,9 +166,6 @@ class _LoginPageState extends State<LoginPage> {
       obscureText: obscureText,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle:
-            labelStyle ?? TextStyle(color: Colors.black54), // Label Style
-        // Removed hintText to ensure no placeholder text appears
         suffixIcon: obscureText
             ? IconButton(
                 icon: Icon(

@@ -81,12 +81,12 @@ class _BrandsScreenState extends State<BrandsScreen> {
                               selectedCategory = category;
                             });
                           },
-                          child: Text(category),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: selectedCategory == category
                                 ? Colors.blue
                                 : Colors.grey,
                           ),
+                          child: Text(category),
                         ),
                       ))
                   .toList(),

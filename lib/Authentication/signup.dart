@@ -208,7 +208,8 @@ class _SignUpPageState extends State<SignUpPage> {
               ElevatedButton(
                 onPressed: _signUp,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(192, 136, 134, 134),
+                  backgroundColor: Colors.grey[300], // Disabled grey color
+                  foregroundColor: Colors.white,
                   padding: EdgeInsets.symmetric(horizontal: 48, vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
@@ -255,10 +256,6 @@ class _SignUpPageState extends State<SignUpPage> {
       onTap: isDate ? _selectDateOfBirth : null,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle:
-            TextStyle(color: Colors.black54), // Always visible label style
-        // Remove hintText completely so that it doesn't appear
-        hintText: null, // Remove this line to ensure no hintText appears
         suffixIcon: isDate
             ? Icon(icon, color: Colors.black38)
             : IconButton(

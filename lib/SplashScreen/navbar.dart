@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jeeveeapp/components/my_account_tile.dart';
+import 'package:jeeveeapp/pages/my_account_tile.dart';
 
 class screenb extends StatelessWidget {
   final int selectedIndex;
@@ -8,12 +8,12 @@ class screenb extends StatelessWidget {
   final bool isMenSelected;
 
   const screenb({
-    Key? key,
+    super.key,
     required this.selectedIndex,
     required this.onItemTapped,
     required this.toggleGender,
     required this.isMenSelected,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -122,13 +122,13 @@ class CustomCircleButton extends StatelessWidget {
   final bool showThan;
 
   const CustomCircleButton({
-    Key? key,
+    super.key,
     required this.isSelected,
     required this.label,
     required this.iconColor,
     required this.showArrow,
     required this.showThan,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
