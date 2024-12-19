@@ -78,6 +78,8 @@ class _LoginPageState extends State<LoginPage> {
                 label: "Email Address *",
                 icon: Icons.email,
                 obscureText: false,
+                labelStyle: TextStyle(color: Colors.black54),
+                borderColor: Colors.black38,
               ),
               SizedBox(height: 16),
               _buildTextField(
@@ -110,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: _login,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 63, 76, 218),
+                  backgroundColor: const Color.fromARGB(192, 136, 134, 134),
                   padding: EdgeInsets.symmetric(horizontal: 80, vertical: 14),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(4),
@@ -155,22 +157,34 @@ class _LoginPageState extends State<LoginPage> {
     required IconData icon,
     bool obscureText = false,
     VoidCallback? toggleVisibility,
+    TextStyle? labelStyle, // Optional label style
+    Color borderColor = Colors.black38, // Custom border color
   }) {
     return TextField(
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
         labelText: label,
+        labelStyle:
+            labelStyle ?? TextStyle(color: Colors.black54), // Label Style
+        // Removed hintText to ensure no placeholder text appears
         suffixIcon: obscureText
             ? IconButton(
                 icon: Icon(
-                  toggleVisibility != null && obscureText
-                      ? Icons.visibility
-                      : Icons.visibility_off,
+                  obscureText ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.black38,
                 ),
                 onPressed: toggleVisibility,
               )
-            : Icon(icon),
+            : Icon(icon, color: Colors.black38),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: borderColor), // Custom border color
+          borderRadius: BorderRadius.circular(35),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black54), // Focused border color
+          borderRadius: BorderRadius.circular(35),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(35),
         ),
