@@ -137,7 +137,7 @@ class _BrandspickedState extends State<Brandspicked> {
               Text(
                 "Brands Picks",
                 style: TextStyle(
-                    color: const Color.fromARGB(255, 22, 32, 234),
+                    color: Color.fromARGB(255, 22, 32, 234),
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
@@ -147,7 +147,7 @@ class _BrandspickedState extends State<Brandspicked> {
               ),
               Icon(
                 Icons.point_of_sale_outlined,
-                color: const Color.fromARGB(255, 22, 32, 234),
+                color: Color.fromARGB(255, 22, 32, 234),
               ),
             ],
           ),
@@ -193,7 +193,7 @@ class _BrandspickedState extends State<Brandspicked> {
                                 brand['text1']!, // Display text1
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  color: const Color.fromARGB(255, 22, 32, 234),
+                                  color: Color.fromARGB(255, 22, 32, 234),
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),

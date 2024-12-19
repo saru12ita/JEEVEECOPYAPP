@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jeeveeapp/BrandPages/BrandFashion.dart';
 import 'package:jeeveeapp/Categorypages/skin.dart';
-import 'package:jeeveeapp/components/my_account_tile.dart';
+import 'package:jeeveeapp/pages/my_account_tile.dart';
 import 'package:jeeveeapp/containers/CategoryMain/CategoryHome.dart';
 import 'package:jeeveeapp/containers/offersmain/Offer_Page.dart';
 import 'package:jeeveeapp/homepage/homepage.dart';
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Color getIconColor(int index) {
     if (_selectedIndex == index) {
       return Color.lerp(
-              const Color.fromARGB(255, 63, 76, 218), Colors.purple, 0.5) ??
+          const Color.fromARGB(255, 63, 76, 218), Colors.purple, 0.5) ??
           const Color.fromARGB(255, 63, 76, 218);
     }
     return Colors.black;

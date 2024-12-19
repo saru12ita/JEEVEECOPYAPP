@@ -8,10 +8,11 @@ class MyAccountTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: CustomDrawer(),
+      
       body: Container(
         color: Color(0xFFF2F2F2),
         child: ListView(
-          padding: const EdgeInsets.all(10.0), // Adds padding around the list
+          padding: const EdgeInsets.all(12.0), // Adds padding around the list
           children: [
             // Login Tile Container
             Container(
@@ -191,8 +192,9 @@ class MyAccountTile extends StatelessWidget {
                       color: Colors.grey,
                     ),
                     onTap: () {
-                      // Add functionality here
-                    },
+                   // Navigate to the contact page using named route
+                    Navigator.pushNamed(context, '/contactpage');
+                   },
                   ),
                 ],
               ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jeeveeapp/productDetails/productDetails.dart';
 
 class SkinPage extends StatelessWidget {
+  const SkinPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,7 +132,7 @@ class SkinPage extends StatelessWidget {
 class ProductCard extends StatelessWidget {
   final int index;
 
-  ProductCard({required this.index});
+  const ProductCard({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
