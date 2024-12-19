@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jeeveeapp/productDetails/Containers/descriptionlist.dart';
 import 'package:jeeveeapp/productDetails/Containers/image.dart';
