@@ -3,6 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:jeeveeapp/Authentication/signup.dart';
 import 'package:jeeveeapp/Authentication/login.dart';
 import 'package:jeeveeapp/SplashScreen/Home.dart';
+import 'package:jeeveeapp/pages/my_account_tile.dart';
+import 'package:jeeveeapp/pages/my_contact_page.dart';
+import 'package:jeeveeapp/pages/my_feedback_page.dart';
+import 'package:jeeveeapp/pages/my_policies_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,10 +24,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
-      // home: ItahariMedicalApp(),
       routes: {
         '/signup': (context) => SignUpPage(), // Route for the SignUpPage
         '/login': (context) => LoginPage(), // Route for the LoginPage
+        '/accountmain': (context) => MyAccountTile(), // Route for the account title
+        '/contactpage': (context) => MyContactPage(), // Route for the contact page
+        '/feedbackpage': (context) => MyFeedbackPage(), // Route for the feedback page
+        '/policiespage': (context) => MyPoliciesPage(), // Route for the policies page
       },
     );
   }
