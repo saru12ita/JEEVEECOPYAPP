@@ -58,7 +58,7 @@ class MyContactPage extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 45.0),
+                  const SizedBox(height: 45.0),
                    Row(
                     mainAxisAlignment: MainAxisAlignment.start, // Center everything horizontally
                     crossAxisAlignment: CrossAxisAlignment.start, // Align text and image vertically
@@ -101,9 +101,7 @@ class MyContactPage extends StatelessWidget {
                     ],
                   ),
 
-
-                    const SizedBox(height: 45.0),
-
+                     const SizedBox(height: 45.0),
                     // Call Section
                       Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -164,8 +162,6 @@ class MyContactPage extends StatelessWidget {
 
                       
                    const SizedBox(height: 45.0),
-
-
                     // Message Section
                     Stack(
                     alignment: Alignment.centerLeft,

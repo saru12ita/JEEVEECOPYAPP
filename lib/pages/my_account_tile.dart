@@ -233,7 +233,7 @@ class MyAccountTile extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 onTap: () {
-                  // feedback goes here
+                  Navigator.pushNamed(context, '/feedbackpage');
                 },
               ),
             ),
@@ -287,6 +287,7 @@ class MyAccountTile extends StatelessWidget {
                     ),
                     onTap: () {
                       // Add navigation or functionality here
+                      Navigator.pushNamed(context, "/policiespage");
                     },
                   ),
                   Divider(),

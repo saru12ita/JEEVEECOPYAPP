@@ -5,6 +5,8 @@ import 'package:jeeveeapp/Authentication/login.dart';
 import 'package:jeeveeapp/SplashScreen/Home.dart';
 import 'package:jeeveeapp/pages/my_account_tile.dart';
 import 'package:jeeveeapp/pages/my_contact_page.dart';
+import 'package:jeeveeapp/pages/my_feedback_page.dart';
+import 'package:jeeveeapp/pages/my_policies_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => SignUpPage(), // Route for the SignUpPage
         '/login': (context) => LoginPage(), // Route for the LoginPage
         '/accountmain': (context) =>MyAccountTile(), // Route for the accounttitle
-        '/contactpage': (context) =>MyContactPage(), // Route for the accounttitle
+        '/contactpage': (context) =>MyContactPage(), // Route for the contactpage
+        '/feedbackpage': (context) =>MyFeedbackPage(), // Route for the feedbackpage
+        '/policiespage': (context) =>MyPoliciesPage(), // Route for the feedbackpage
       },
     );
   }
