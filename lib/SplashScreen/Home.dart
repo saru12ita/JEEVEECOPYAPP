@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
           label,
           style: TextStyle(
             color: _selectedFilter == label
-                ? const Color.fromARGB(255, 215, 41, 180) // Pink when selected
+                ? const Color.fromARGB(255, 63, 76, 218) // Pink when selected
                 : Colors.black, // Black when unselected
             fontWeight: FontWeight.bold,
             fontSize: 16,
@@ -539,7 +539,7 @@ class _StatefulCategoryItemState extends State<StatefulCategoryItem> {
         style: TextStyle(
           fontSize: 16,
           color: _isSelected
-              ? const Color.fromARGB(255, 215, 41, 180)
+              ? const Color.fromARGB(255, 63, 76, 218)
               : Colors.black, // Change to pink if selected
         ),
       ),

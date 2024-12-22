@@ -24,14 +24,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
-      // home: ItahariMedicalApp(),
       routes: {
         '/signup': (context) => SignUpPage(), // Route for the SignUpPage
         '/login': (context) => LoginPage(), // Route for the LoginPage
-        '/accountmain': (context) =>MyAccountTile(), // Route for the accounttitle
-        '/contactpage': (context) =>MyContactPage(), // Route for the contactpage
-        '/feedbackpage': (context) =>MyFeedbackPage(), // Route for the feedbackpage
-        '/policiespage': (context) =>MyPoliciesPage(), // Route for the feedbackpage
+        '/accountmain': (context) => MyAccountTile(), // Route for the account title
+        '/contactpage': (context) => MyContactPage(), // Route for the contact page
+        '/feedbackpage': (context) => MyFeedbackPage(), // Route for the feedback page
+        '/policiespage': (context) => MyPoliciesPage(), // Route for the policies page
       },
     );
   }
