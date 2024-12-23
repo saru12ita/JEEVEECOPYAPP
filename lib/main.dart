@@ -7,6 +7,7 @@ import 'package:jeeveeapp/pages/my_account_tile.dart';
 import 'package:jeeveeapp/pages/my_contact_page.dart';
 import 'package:jeeveeapp/pages/my_feedback_page.dart';
 import 'package:jeeveeapp/pages/my_policies_page.dart';
+import 'package:jeeveeapp/pages/my_policy_shipping_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,16 +22,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'JeeVee App',
-      theme: ThemeData(primarySwatch: Colors.blue),
+          theme: ThemeData(
+          appBarTheme: AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
       routes: {
         '/signup': (context) => SignUpPage(), // Route for the SignUpPage
         '/login': (context) => LoginPage(), // Route for the LoginPage
-        '/accountmain': (context) => MyAccountTile(), // Route for the account title
-        '/contactpage': (context) => MyContactPage(), // Route for the contact page
-        '/feedbackpage': (context) => MyFeedbackPage(), // Route for the feedback page
-        '/policiespage': (context) => MyPoliciesPage(), // Route for the policies page
+        '/accountmain': (context) =>MyAccountTile(), // Route for the accounttitle
+        '/contactpage': (context) =>MyContactPage(), // Route for the contactpage
+        '/feedbackpage': (context) =>MyFeedbackPage(), // Route for the feedbackpage
+        '/policiespage': (context) =>MyPoliciesPage(), // Route for the feedbackpage
+        '/shippingpolicy': (context) =>MyPolicyShippingPage(), // Route for the feedbackpage
       },
     );
   }
