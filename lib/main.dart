@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
-      // home: ItahariMedicalApp(),
       routes: {
         '/signup': (context) => SignUpPage(), // Route for the SignUpPage
         '/login': (context) => LoginPage(), // Route for the LoginPage

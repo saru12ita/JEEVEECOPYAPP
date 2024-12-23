@@ -190,13 +190,13 @@ class _SignUpPageState extends State<SignUpPage> {
                           TextSpan(
                             text: "Terms and Conditions",
                             style: TextStyle(
-                                color: const Color.fromARGB(255, 212, 52, 188)),
+                                color: const Color.fromARGB(255, 63, 76, 218)),
                           ),
                           TextSpan(text: " and "),
                           TextSpan(
                             text: "Privacy Policy.",
                             style: TextStyle(
-                                color: const Color.fromARGB(255, 212, 52, 188)),
+                                color: const Color.fromARGB(255, 63, 76, 218)),
                           ),
                         ],
                       ),
@@ -248,7 +248,7 @@ class _SignUpPageState extends State<SignUpPage> {
     bool obscureText = false,
     bool isDate = false,
     VoidCallback? toggleVisibility,
-}) {
+  }) {
     return TextField(
       controller: controller,
       obscureText: obscureText,
@@ -256,15 +256,11 @@ class _SignUpPageState extends State<SignUpPage> {
       onTap: isDate ? _selectDateOfBirth : null,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(color: Colors.black54), // Always visible label style
-        // Remove hintText completely so that it doesn't appear
-        hintText: null, // Remove this line to ensure no hintText appears
         suffixIcon: isDate
             ? Icon(icon, color: Colors.black38)
             : IconButton(
                 icon: Icon(
                   obscureText ? Icons.visibility_off : Icons.visibility,
-                  color: Colors.black38,
                 ),
                 onPressed: toggleVisibility,
               ),
@@ -281,5 +277,5 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
-}
+  }
 }

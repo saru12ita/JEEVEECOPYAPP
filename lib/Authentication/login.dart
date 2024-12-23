@@ -73,7 +73,6 @@ class _LoginPageState extends State<LoginPage> {
                 height: 210,
               ),
               SizedBox(height: 24),
-
               _buildTextField(
                 controller: _emailController,
                 label: "Email Address *",
@@ -82,9 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 labelStyle: TextStyle(color: Colors.black54),
                 borderColor: Colors.black38,
               ),
-
               SizedBox(height: 16),
-
               _buildTextField(
                 controller: _passwordController,
                 label: "Password *",
@@ -96,7 +93,6 @@ class _LoginPageState extends State<LoginPage> {
                   });
                 },
               ),
-              
               SizedBox(height: 8),
               Align(
                 alignment: Alignment.centerRight,
@@ -141,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                       TextSpan(
                         text: "Sign Up",
                         style: TextStyle(
-                          color: const Color.fromARGB(255, 212, 52, 188),
+                          color: const Color.fromARGB(255, 63, 76, 218),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -170,8 +166,6 @@ class _LoginPageState extends State<LoginPage> {
       obscureText: obscureText,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: labelStyle ?? TextStyle(color: Colors.black54), // Label Style
-        // Removed hintText to ensure no placeholder text appears
         suffixIcon: obscureText
             ? IconButton(
                 icon: Icon(
