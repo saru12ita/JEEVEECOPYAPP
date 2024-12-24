@@ -84,42 +84,46 @@ class MyPolicyShippingPage extends StatelessWidget {
 
             return Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Section Title
-                  if (title != null)
-                    Text(
-                      title,
-                      style: headingStyle,
-                    ),
-                  const SizedBox(height: 8.0),
+              child: Container(
+                color: const Color.fromARGB(255, 246, 243, 243), // Background color
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Section Title
+                    if (title != null)
+                      Text(
+                        title,
+                        style: headingStyle,
+                      ),
+                    const SizedBox(height: 8.0),
 
-                  // Section Content
-                  if (content is String)
-                    Text(
-                      content,
-                      style: bodyStyle,
-                    )
-                  else if (content is List)
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: List.generate(content.length, (i) {
-                        final text = content[i];
-                        final style = text.startsWith("Email:") || text.startsWith("(")
-                            ? linkStyle
-                            : bodyStyle;
+                    // Section Content
+                    if (content is String)
+                      Text(
+                        content,
+                        style: bodyStyle,
+                      )
+                    else if (content is List)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: List.generate(content.length, (i) {
+                          final text = content[i];
+                          final style = text.startsWith("Email:") || text.startsWith("(")
+                              ? linkStyle
+                              : bodyStyle;
 
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 10.0),
-                          child: Text(
-                            text,
-                            style: style,
-                          ),
-                        );
-                      }),
-                    ),
-                ],
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 10.0),
+                            child: Text(
+                              text,
+                              style: style,
+                            ),
+                          );
+                        }),
+                      ),
+                  ],
+                ),
               ),
             );
           },

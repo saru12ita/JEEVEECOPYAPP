@@ -100,7 +100,9 @@ class MyPoliciesPage extends StatelessWidget {
                       ),
                      const SizedBox(width: 185),
                      GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.pushNamed(context, '/returnpolicy');
+                      },
                       child: Icon(
                         Icons.arrow_forward_ios,
                         size: 14.0,
