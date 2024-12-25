@@ -311,6 +311,7 @@ class MyAccountTile extends StatelessWidget {
                     ),
                     onTap: () {
                       // Add navigation or functionality here
+                      Navigator.pushNamed(context, '/terms');
                     },
                   ),
                   Divider(),
@@ -334,6 +335,7 @@ class MyAccountTile extends StatelessWidget {
                     ),
                     onTap: () {
                       // Add navigation or functionality here
+                      Navigator.pushNamed(context, '/aboutus');
                     },
                   ),
                   Divider(),

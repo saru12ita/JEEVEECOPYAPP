@@ -31,6 +31,7 @@ class MyReturnPolicyPage extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: ListView(
               children: [
+
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Column(
@@ -92,6 +93,7 @@ class MyReturnPolicyPage extends StatelessWidget {
                               )
                             ),
                             const SizedBox(height: 10.0),
+
                              Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -109,6 +111,7 @@ class MyReturnPolicyPage extends StatelessWidget {
                                   "Second time request against the same product/order."),
                             ],
                           ),
+                          
                         ],
                       ),   
                     ),
