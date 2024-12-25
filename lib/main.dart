@@ -3,12 +3,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:jeeveeapp/Authentication/signup.dart';
 import 'package:jeeveeapp/Authentication/login.dart';
 import 'package:jeeveeapp/SplashScreen/Home.dart';
+import 'package:jeeveeapp/pages/my_about_page.dart';
 import 'package:jeeveeapp/pages/my_account_tile.dart';
 import 'package:jeeveeapp/pages/my_contact_page.dart';
 import 'package:jeeveeapp/pages/my_feedback_page.dart';
 import 'package:jeeveeapp/pages/my_policies_page.dart';
 import 'package:jeeveeapp/pages/my_policy_shipping_page.dart';
+import 'package:jeeveeapp/pages/my_refund_page.dart';
 import 'package:jeeveeapp/pages/my_return_policy_page.dart';
+import 'package:jeeveeapp/pages/my_terms_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,6 +43,9 @@ class MyApp extends StatelessWidget {
         '/policiespage': (context) =>MyPoliciesPage(), // Route for the feedbackpage
         '/shippingpolicy': (context) =>MyPolicyShippingPage(), // Route for the policyshippingpage
         '/returnpolicy': (context) =>MyReturnPolicyPage(), // Route for the policyshippingpage
+        '/refundpolicy': (context) =>MyRefundPage(), // Route for the refundpolicy page
+        '/terms': (context) =>MyTermsPage(), // Route for the terms and condititons page
+        '/aboutus': (context) =>MyAboutPage(), // Route for the my about us page
       },
     );
   }

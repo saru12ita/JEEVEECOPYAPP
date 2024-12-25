@@ -8,15 +8,15 @@ class MyPoliciesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Policies",
-        style: TextStyle(
-          color: Colors.black,
-        ),
+        title: const Text(
+          "Policies",
+          style: TextStyle(
+            color: Colors.black,
+          ),
         ),
         centerTitle: true,
-        
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -28,10 +28,10 @@ class MyPoliciesPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: SearchBarWithBarcode(
-              onBarcodeTap: (){
-                print("Barcdoe is tapped");
+              onBarcodeTap: () {
+                print("Barcode is tapped");
               },
-              onSearch: (value){
+              onSearch: (value) {
                 print("Search input is $value");
               },
             ),
@@ -46,107 +46,98 @@ class MyPoliciesPage extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: ListView(
               children: [
-                
-                //Shipping policy
-                Align(
-                  alignment: Alignment.centerLeft,
+                // Shipping policy
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/shippingpolicy');
+                  },
                   child: Row(
                     children: [
-                      //image
-                      Image.asset("assets/policies/Shipping.png",
-                      height: 30,
-                      width: 30,
+                      Image.asset(
+                        "assets/policies/Shipping.png",
+                        height: 30,
+                        width: 30,
                       ),
                       const SizedBox(width: 10),
-                      Text(
+                      const Text(
                         "Shipping policy",
                         style: TextStyle(
                           fontSize: 17.0,
                         ),
                       ),
-                     const SizedBox(width: 170),
-                     GestureDetector(
-                      onTap: (){
-                        Navigator.pushNamed(context, '/shippingpolicy');
-                      },
-                      child: Icon(
+                      const Spacer(),
+                      const Icon(
                         Icons.arrow_forward_ios,
                         size: 14.0,
                         color: Colors.black,
                       ),
-                     )
                     ],
                   ),
-                ), 
+                ),
                 const SizedBox(height: 7.0),
-                Divider(),
+                const Divider(),
 
-                //Return policy
-                Align(
-                  alignment: Alignment.centerLeft,
+                // Return policy
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/returnpolicy');
+                  },
                   child: Row(
                     children: [
-                      //image
-                      Image.asset("assets/policies/Return.png",
-                      height: 30,
-                      width: 30,
+                      Image.asset(
+                        "assets/policies/Return.png",
+                        height: 30,
+                        width: 30,
                       ),
                       const SizedBox(width: 10),
-                      Text(
+                      const Text(
                         "Return policy",
                         style: TextStyle(
                           fontSize: 17.0,
                         ),
                       ),
-                     const SizedBox(width: 185),
-                     GestureDetector(
-                      onTap: (){
-                        Navigator.pushNamed(context, '/returnpolicy');
-                      },
-                      child: Icon(
+                      const Spacer(),
+                      const Icon(
                         Icons.arrow_forward_ios,
                         size: 14.0,
                         color: Colors.black,
                       ),
-                     )
                     ],
                   ),
-                ), 
+                ),
                 const SizedBox(height: 7.0),
-                Divider(),
+                const Divider(),
 
-                //Refund Policy
-                Align(
-                  alignment: Alignment.centerLeft,
+                // Refund policy
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/refundpolicy');
+                  },
                   child: Row(
                     children: [
-                      //image
-                      Image.asset("assets/policies/Refund.png",
-                      height: 30,
-                      width: 30,
+                      Image.asset(
+                        "assets/policies/Refund.png",
+                        height: 30,
+                        width: 30,
                       ),
                       const SizedBox(width: 10),
-                      Text(
+                      const Text(
                         "Refund policy",
                         style: TextStyle(
                           fontSize: 17.0,
                         ),
                       ),
-                     const SizedBox(width: 182),
-                     const SizedBox(height: 5.0),
-                     GestureDetector(
-                      onTap: (){},
-                      child: Icon(
+                      const Spacer(),
+                      const Icon(
                         Icons.arrow_forward_ios,
                         size: 14.0,
                         color: Colors.black,
                       ),
-                     )
                     ],
                   ),
-                ), 
+                ),
                 const SizedBox(height: 7.0),
-                Divider(),
+                const Divider(),
               ],
             ),
           ),
