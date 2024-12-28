@@ -232,7 +232,7 @@ class MyAccountTile extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 onTap: () {
-                  // feedback goes here
+                  Navigator.pushNamed(context, '/feedbackpage');
                 },
               ),
             ),
@@ -286,6 +286,7 @@ class MyAccountTile extends StatelessWidget {
                     ),
                     onTap: () {
                       // Add navigation or functionality here
+                      Navigator.pushNamed(context, "/policiespage");
                     },
                   ),
                   Divider(),
@@ -309,12 +310,13 @@ class MyAccountTile extends StatelessWidget {
                     ),
                     onTap: () {
                       // Add navigation or functionality here
+                      Navigator.pushNamed(context, '/terms');
                     },
                   ),
                   Divider(),
                   ListTile(
                     leading: Image.asset(
-                      'assets/icons/about.png', // Replace with your actual app icon path
+                      'assets/images/OIP.jpg', // Replace with your actual app icon path
                       width: 28,
                       height: 28,
                     ),
@@ -332,6 +334,7 @@ class MyAccountTile extends StatelessWidget {
                     ),
                     onTap: () {
                       // Add navigation or functionality here
+                      Navigator.pushNamed(context, '/aboutus');
                     },
                   ),
                   Divider(),
@@ -354,7 +357,40 @@ class MyAccountTile extends StatelessWidget {
                       color: Colors.grey,
                     ),
                     onTap: () {
-                      // Add navigation or functionality here
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                // Display the image
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Image.asset(
+                                    'assets/images/OIP.jpg', // Replace with your actual image path
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                // Close button at the bottom
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pop(); // Close the dialog
+                                  },
+                                  child: Text(
+                                    "Close",
+                                    style: TextStyle(color: Colors.blue),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      );
                     },
                   ),
                 ],
