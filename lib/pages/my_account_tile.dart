@@ -8,7 +8,6 @@ class MyAccountTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: CustomDrawer(),
-      
       body: Container(
         color: Color(0xFFF2F2F2),
         child: ListView(
@@ -46,8 +45,8 @@ class MyAccountTile extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 onTap: () {
-                   // Navigate to the Login page using named route
-                    Navigator.pushNamed(context, '/login');
+                  // Navigate to the Login page using named route
+                  Navigator.pushNamed(context, '/login');
                 },
               ),
             ),
@@ -86,7 +85,7 @@ class MyAccountTile extends StatelessWidget {
                 ),
                 onTap: () {
                   // Navigate to the Login page using named route
-                    Navigator.pushNamed(context, '/signup');
+                  Navigator.pushNamed(context, '/signup');
                 },
               ),
             ),
@@ -192,9 +191,9 @@ class MyAccountTile extends StatelessWidget {
                       color: Colors.grey,
                     ),
                     onTap: () {
-                   // Navigate to the contact page using named route
-                    Navigator.pushNamed(context, '/contactpage');
-                   },
+                      // Navigate to the contact page using named route
+                      Navigator.pushNamed(context, '/contactpage');
+                    },
                   ),
                 ],
               ),
