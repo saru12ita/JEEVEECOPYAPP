@@ -1,18 +1,36 @@
-allprojects {
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
     repositories {
-        google()
-        mavenCentral()
+        google() // Google's Maven repository
+        mavenCentral() // Maven Central repository
+    }
+    dependencies {
+        // You can add additional buildscript dependencies here if required
+        classpath "com.android.tools.build:gradle:8.0.2" // Update as per your Android Gradle plugin version
     }
 }
 
+allprojects {
+    repositories {
+        google() // Google's Maven repository
+        mavenCentral() // Maven Central repository
+    }
+}
+
+// Set a custom build directory for the root project
 rootProject.buildDir = "../build"
+
+// Configure build directories for subprojects
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
+
+// Ensure that the app module is evaluated first
 subprojects {
     project.evaluationDependsOn(":app")
 }
 
+// Task to clean the build directory
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
