@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:jeeveeapp/BrandPages/BrandFashion.dart';
 import 'package:jeeveeapp/Categorypages/skin.dart';
+import 'package:jeeveeapp/WomenScreen/WomenPage.dart';
 import 'package:jeeveeapp/WomenScreen/WomenScreen.dart';
+import 'package:jeeveeapp/SplashScreen/Home.dart';
 import 'package:jeeveeapp/pages/my_account_tile.dart';
 import 'package:jeeveeapp/containers/CategoryMain/CategoryHome.dart';
 import 'package:jeeveeapp/containers/offersmain/Offer_Page.dart';
 import 'package:jeeveeapp/homepage/MenPage.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class Mscreen1 extends StatefulWidget {
+  const Mscreen1({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _Mscreen1State createState() => _Mscreen1State();
 }
 
 final List<Map<String, String>> brandList = [
@@ -35,15 +37,15 @@ final List<Map<String, String>> brandList = [
   {"name": "AI Ziba", "imageUrl": "assets/icons/Abbott.png"},
 ];
 
-class _HomeScreenState extends State<HomeScreen> {
+class _Mscreen1State extends State<Mscreen1> {
   int _selectedIndex = 0;
-  bool isMenSelected = true;
+  bool isWomenSelected = true;
   String _selectedSection = "Categories"; // Start with Categories selected
   String _searchQuery = "";
   String _selectedFilter = "ALL"; // Track the selected filter
 
   final List<Widget> _pages = [
-    HomePage(),
+    Menpage(),
     CategoryMainPage(),
     OfferPage(),
     MyAccountTile(),
@@ -61,22 +63,22 @@ class _HomeScreenState extends State<HomeScreen> {
       isMenSelected = !isMenSelected;
     });
   }
-  */
+*/
 
   void toggleGender() {
-    if (isMenSelected) {
+    if (isWomenSelected) {
       // Navigate to Mscreen1 when Men is selected
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Mscreen1(),
+          builder: (context) => HomeScreen(),
         ),
       );
     } else {
       // Stay on the same screen (do nothing for Women)
     }
     setState(() {
-      isMenSelected = !isMenSelected; // Toggle the gender state
+      isWomenSelected = !isWomenSelected; // Toggle the gender state
     });
   }
 
@@ -439,7 +441,6 @@ class _HomeScreenState extends State<HomeScreen> {
         clipBehavior: Clip.none,
         children: [
           // Bottom Navigation Background
-
           Container(
             height: 70,
             color: Colors.white,
@@ -468,6 +469,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+
           // Custom Circular Button for "V> (Men/Women)"
 
           Positioned(
@@ -481,10 +483,10 @@ class _HomeScreenState extends State<HomeScreen> {
               child: CustomCircleButton(
                 isSelected: _selectedIndex == 0,
                 label: _selectedIndex == 0
-                    ? (isMenSelected ? 'Men' : 'Women')
+                    ? (isWomenSelected ? 'Women' : 'Men')
                     : 'Home',
                 iconColor: _selectedIndex == 0
-                    ? (isMenSelected ? Colors.blue : Colors.pink)
+                    ? (isWomenSelected ? Colors.pink : Colors.blue)
                     : Colors.black, // Color of the v.png icon
                 showArrow: _selectedIndex == 0,
                 showThan: _selectedIndex ==

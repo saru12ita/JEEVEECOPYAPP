@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jeeveeapp/Authentication/signup.dart';
 import 'package:jeeveeapp/Authentication/login.dart';
 import 'package:jeeveeapp/SplashScreen/Home.dart';
+import 'package:jeeveeapp/homepage/menHomepage/MenHomeCategory.dart';
 import 'package:jeeveeapp/pages/my_about_page.dart';
 import 'package:jeeveeapp/pages/my_account_tile.dart';
 import 'package:jeeveeapp/pages/my_contact_page.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
+      //  home: MenHomeCategory(),
       routes: {
         '/signup': (context) => SignUpPage(), // Route for the SignUpPage
         '/login': (context) => LoginPage(), // Route for the LoginPage
